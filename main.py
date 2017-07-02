@@ -48,7 +48,7 @@ if srcs(settings, 'YES'):
         writer = csv.DictWriter(myFile, fieldnames=fieldnames)
         writer.writeheader()
 
-    print colored('##############\nSUCCESS\n############', 'blue')
+    print colored('##############\nREGISTRATION\nSUCCESS\n############', 'blue')
     
     with open(settings['database'],'a') as myFile:
       writer = csv.DictWriter(myFile, fieldnames=fieldnames)

@@ -1,4 +1,3 @@
-from datetime import datetime
 
 
 
@@ -11,15 +10,30 @@ class Platform(object):
     self.users=[]
 
 # GETTER
+  def get_list_users(self,list_users):
+    list_users=''
+    
+    if self.users:
+      list_users='\n- '.join(self.users)
+    else:
+      list_users='List users empty'
+
+    return list_users
+
+  def get_name(self):
+    return self.name
 
 # SETTER
   def setName(self,name):
     self.name=name
+
+
 # ACTION
-
-
-
-
+  def sign_up(self,username, email):
+    u=User(username,email)
+    u.setPassword(raw_input('Set your password:\n')) 
+    self.users.append(u)
+    return u
 
 
 
@@ -34,6 +48,9 @@ class User(object):
   def __init__(self, username, email):
     self.username=username
     self.email=email
+    self.first_name= ''
+    self.last_name= ''
+    self.times_logged_in = 0
     self.date_join=datetime.now()
 
   def __str__(self):
